@@ -9,7 +9,12 @@ The objective of this challenge is to create an API that manages customers and t
 
 1. You must use .NET Core (Version 8.0) and C#
 2. The API must consume and return JSON data
-3. The GET API should utilize OData parameters to query data 
+3. The GET API should utilize the following OData parameters to query data 
+    - $select
+    - $filter
+    - $top
+    - $skip
+    - $orderby
 4. The data must be stored in a persistent database using EF Core and SQLite 
 5. You do not need to implement Authorization/Authentication or consider any other security implications 
 6. You are free to use any NuGet package if you can justify its usage
