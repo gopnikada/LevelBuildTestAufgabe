@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Levelbuild.CodingChallenge.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Levelbuild.CodingChallenge.Persistence.Tests", "Levelbuild.CodingChallenge.Persistence.Tests\Levelbuild.CodingChallenge.Persistence.Tests.csproj", "{C12220A5-C17E-47B0-8C9F-0BB2AA42C8E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Levelbuild.CodingChallenge.Common", "Levelbuild.CodingChallenge.Common\Levelbuild.CodingChallenge.Common.csproj", "{1B26723A-2FF4-43F6-9DA6-BD5C23E98233}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{C12220A5-C17E-47B0-8C9F-0BB2AA42C8E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C12220A5-C17E-47B0-8C9F-0BB2AA42C8E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C12220A5-C17E-47B0-8C9F-0BB2AA42C8E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B26723A-2FF4-43F6-9DA6-BD5C23E98233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B26723A-2FF4-43F6-9DA6-BD5C23E98233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B26723A-2FF4-43F6-9DA6-BD5C23E98233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B26723A-2FF4-43F6-9DA6-BD5C23E98233}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +76,7 @@ Global
 		{A3941C73-4676-4C87-9E1D-78260052A9D2} = {DA0E6E11-3C5B-44E5-809D-C0A33B1B3AF6}
 		{7DE10597-4BA6-41D6-A67D-BE3934E6559C} = {DA0E6E11-3C5B-44E5-809D-C0A33B1B3AF6}
 		{C12220A5-C17E-47B0-8C9F-0BB2AA42C8E1} = {DA0E6E11-3C5B-44E5-809D-C0A33B1B3AF6}
+		{1B26723A-2FF4-43F6-9DA6-BD5C23E98233} = {C306DFD6-4573-4F85-B556-294DEB384E4F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {16C99900-625B-40BF-A145-F4510C842EB2}
