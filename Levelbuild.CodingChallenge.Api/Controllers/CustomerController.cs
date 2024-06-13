@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Levelbuild.CodingChallenge.Api.Models;
 using Levelbuild.CodingChallenge.Domain.Abstractions.Handlers;
 using Levelbuild.CodingChallenge.Domain.Abstractions.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -15,10 +17,12 @@ namespace Levelbuild.CodingChallenge.Api.Controllers;
 public class CustomerController : Controller
 {
     private readonly ICustomerHandler customerHandler;
+    private readonly IMapper mapper;
 
-    public CustomerController(ICustomerHandler customerHandler)
+    public CustomerController(ICustomerHandler customerHandler, IMapper mapper)
     {
-        this.customerHandler = customerHandler;
+        this.customerHandler = customerHandler ?? throw new ArgumentNullException(nameof(customerHandler));
+        this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
     [HttpGet]
@@ -26,10 +30,12 @@ public class CustomerController : Controller
     public async Task<ActionResult<IQueryable<CustomerModel>>> GetCustomers()
     {
 
-        var customers = await this.customerHandler.GetAllAsync().ConfigureAwait(false);
+        IEnumerable<CustomerModel> customersFromHandler = await this.customerHandler.GetAllAsync().ConfigureAwait(false);
 
-        IQueryable<CustomerModel> asQueryable =
-            new EnumerableQuery<CustomerModel>(customers);
+        IEnumerable<CustomerDataModel> customers = this.mapper.Map<IEnumerable<CustomerDataModel>>(customersFromHandler);
+
+        IQueryable<CustomerDataModel> asQueryable =
+            new EnumerableQuery<CustomerDataModel>(customers);
 
         return Ok(asQueryable);
     }
@@ -40,13 +46,13 @@ public class CustomerController : Controller
     {
         return Ok();
     }
-    
+
     [HttpPost]
     public IActionResult Create()
     {
         return Ok();
     }
-    
+
     [HttpPatch]
     [Route("{id}")]
     public IActionResult Update()

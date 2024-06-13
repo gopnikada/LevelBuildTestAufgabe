@@ -5,6 +5,4 @@ public class CustomerModel : BaseModel
     public string Name { get; set; }
     
     public string? WebSite { get; set; }
-
-    public UserModel[] Users { get; set; }
 }

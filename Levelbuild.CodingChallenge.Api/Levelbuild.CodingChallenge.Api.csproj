@@ -20,8 +20,4 @@
       <ProjectReference Include="..\Levelbuild.CodingChallenge.Persistence\Levelbuild.CodingChallenge.Persistence.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="MappingProfiles\" />
-    </ItemGroup>
-
 </Project>
