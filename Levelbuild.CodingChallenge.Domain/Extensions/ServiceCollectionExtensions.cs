@@ -19,6 +19,7 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped<IGetAllCustomersHandler, GetAllGetAllCustomersesHandler>();
         services.AddScoped<IGetCustomerHandler, GetCustomerHandler>();
+        services.AddScoped<ICreateCustomerHandler, CreateCustomerHandler>();
 
         return services;
     }

@@ -18,13 +18,19 @@ namespace Levelbuild.CodingChallenge.Api.Controllers;
 public class CustomerController : Controller
 {
     private readonly IGetAllCustomersHandler _getAllCustomersHandler;
-    private IGetCustomerHandler getCustomerHandler;
+    private readonly IGetCustomerHandler getCustomerHandler;
+    private readonly ICreateCustomerHandler createCustomerHandler;
     private readonly IMapper mapper;
 
-    public CustomerController(IGetAllCustomersHandler getAllCustomersHandler, IGetCustomerHandler getCustomerHandler, IMapper mapper)
+    public CustomerController(
+        IGetAllCustomersHandler getAllCustomersHandler,
+        IGetCustomerHandler getCustomerHandler,
+        ICreateCustomerHandler createCustomerHandler, 
+        IMapper mapper)
     {
         this._getAllCustomersHandler = getAllCustomersHandler ?? throw new ArgumentNullException(nameof(getAllCustomersHandler));
         this.getCustomerHandler = getCustomerHandler ?? throw new ArgumentNullException(nameof(getCustomerHandler));
+        this.createCustomerHandler = createCustomerHandler ?? throw new ArgumentNullException(nameof(createCustomerHandler));
         this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
@@ -55,8 +61,12 @@ public class CustomerController : Controller
     }
 
     [HttpPost]
-    public IActionResult Create()
+    public async Task<IActionResult> Create([FromBody] CreateCustomerRequestDataModel request)
     {
+        CreateCustomerRequestModel domainRequest = this.mapper.Map<CreateCustomerRequestModel>(request);
+
+        await this.createCustomerHandler.Create(domainRequest).ConfigureAwait(false);
+
         return Ok();
     }
 
