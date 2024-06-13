@@ -1,6 +1,4 @@
-using System.Runtime.CompilerServices;
 using Levelbuild.CodingChallenge.Domain.Abstractions.Handlers;
-using Levelbuild.CodingChallenge.Persistence.Context;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Levelbuild.CodingChallenge.Api.Controllers;

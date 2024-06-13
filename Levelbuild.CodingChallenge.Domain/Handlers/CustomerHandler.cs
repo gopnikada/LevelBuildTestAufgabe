@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using AutoMapper;
 using Levelbuild.CodingChallenge.Domain.Abstractions.Handlers;
@@ -10,7 +8,6 @@ using Levelbuild.CodingChallenge.Domain.Exceptions;
 using Levelbuild.CodingChallenge.Persistence.Abstractions.Models;
 using Levelbuild.CodingChallenge.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Logging;
 
 namespace Levelbuild.CodingChallenge.Domain.Handlers;

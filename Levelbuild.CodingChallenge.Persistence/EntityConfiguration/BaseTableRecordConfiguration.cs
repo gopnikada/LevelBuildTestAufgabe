@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq.Expressions;
-using Levelbuild.CodingChallenge.Persistence.Abstractions.Models;
+﻿using Levelbuild.CodingChallenge.Persistence.Abstractions.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
 

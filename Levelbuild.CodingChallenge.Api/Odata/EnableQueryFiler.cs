@@ -3,11 +3,11 @@ using System.Linq;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Levelbuild.CodingChallenge.Api
+namespace Levelbuild.CodingChallenge.Api.Odata
 {
     public class EnableQueryFiler : IOperationFilter
     {
-        static List<OpenApiParameter> s_Parameters = (new List<(string Name, string Description)>()
+        static List<OpenApiParameter> s_Parameters = new List<(string Name, string Description)>()
         {
             ( "$top", "The max number of records."),
             ( "$skip", "The number of records to skip."),
@@ -15,7 +15,7 @@ namespace Levelbuild.CodingChallenge.Api
             ( "$select", "Specifies a subset of properties to return. Use a comma separated list."),
             ( "$orderby", "Determines what values are used to order a collection of records."),
             ( "$expand", "Use to add related query data.")
-        }).Select(pair => new OpenApiParameter
+        }.Select(pair => new OpenApiParameter
         {
             Name = pair.Name,
             Required = false,

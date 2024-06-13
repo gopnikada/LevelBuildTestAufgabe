@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Levelbuild.CodingChallenge.Api.Models;
 using Levelbuild.CodingChallenge.Domain.Abstractions.Models;
-using Levelbuild.CodingChallenge.Persistence.Abstractions.Models;
 
 namespace Levelbuild.CodingChallenge.Api.MappingProfiles;
 
