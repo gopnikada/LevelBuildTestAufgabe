@@ -47,14 +47,14 @@ public static class ServiceCollectionExtensions
             {
                 Id = customerIdOne,
                 Name = "Customer1Name",
-                Website = "213"
+                WebSite = "213"
             }); 
             
             context.Customers.Add(new CustomerTableRecord
             {
                 Id = customerIdTwo,
                 Name = "Customer2Name",
-                Website = "213"
+                WebSite = "213"
             });
 
             context.Users.Add(new UserTableRecord

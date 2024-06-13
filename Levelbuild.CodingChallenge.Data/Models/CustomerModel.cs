@@ -4,7 +4,7 @@ public class CustomerModel : BaseModel
 {
     public string Name { get; set; }
     
-    public string WebSite { get; set; }
+    public string? WebSite { get; set; }
 
-    private UserModel[] Users { get; set; }
+    public UserModel[] Users { get; set; }
 }

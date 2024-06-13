@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Levelbuild.CodingChallenge.Domain.Abstractions.Handlers;
 using Levelbuild.CodingChallenge.Domain.Abstractions.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
@@ -12,10 +14,20 @@ namespace Levelbuild.CodingChallenge.Api.Controllers;
 [Produces("application/json")]
 public class CustomerController : Controller
 {
+    private readonly ICustomerHandler customerHandler;
+
+    public CustomerController(ICustomerHandler customerHandler)
+    {
+        this.customerHandler = customerHandler;
+    }
+
     [HttpGet]
     [EnableQuery]
-    public ActionResult<IQueryable<CustomerModel>> GetCustomers()
+    public async Task<ActionResult<IQueryable<CustomerModel>>> GetCustomers()
     {
+
+        var customers = await this.customerHandler.GetAllAsync().ConfigureAwait(false);
+
         IQueryable<CustomerModel> asQueryable =
             new EnumerableQuery<CustomerModel>(new List<CustomerModel>()
             {

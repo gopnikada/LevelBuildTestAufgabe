@@ -7,8 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Handlers\" />
+    <Folder Include="Extensions\" />
     <Folder Include="MappingProfiles\" />
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Levelbuild.CodingChallenge.Data\Levelbuild.CodingChallenge.Domain.Abstractions.csproj" />
+    <ProjectReference Include="..\Levelbuild.CodingChallenge.Persistence\Levelbuild.CodingChallenge.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

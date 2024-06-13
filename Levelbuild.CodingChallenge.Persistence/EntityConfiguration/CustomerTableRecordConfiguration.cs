@@ -23,7 +23,7 @@ public class CustomerTableRecordConfiguration
             HasMaxLength(50);
 
         _ = entity.
-            Property(p => p.Website).
+            Property(p => p.WebSite).
             HasMaxLength(450);
 
         _ = entity.

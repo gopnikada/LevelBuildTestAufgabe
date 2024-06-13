@@ -1,6 +1,9 @@
+using System.Collections.Generic;
+using System.Reflection;
 using Levelbuild.CodingChallenge.Api;
 using Levelbuild.CodingChallenge.Api.Configuration;
 using Levelbuild.CodingChallenge.Domain.Abstractions.Models;
+using Levelbuild.CodingChallenge.Domain.Extensions;
 using Levelbuild.CodingChallenge.Persistence.Abstractions.Builder;
 using Levelbuild.CodingChallenge.Persistence.Context;
 using Levelbuild.CodingChallenge.Persistence.Extensions;
@@ -43,6 +46,13 @@ builder.Services.AddCodingChallengeDatabase(optionsBuilder =>
     optionsBuilder.ConnectionString = dataBaseSettings.ConnectionString;
 });
 
+List<Assembly> mappingAssemblies = new List<Assembly>();
+
+mappingAssemblies.Add(typeof(Program).Assembly);
+
+builder.Services.AddDomainComponents(mappingAssemblies);
+
+builder.Services.AddAutoMapper(_ => { }, mappingAssemblies.ToArray());
 
 var app = builder.Build();
 

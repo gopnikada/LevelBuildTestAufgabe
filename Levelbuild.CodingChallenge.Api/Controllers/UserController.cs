@@ -10,16 +10,11 @@ namespace Levelbuild.CodingChallenge.Api.Controllers;
 [Produces("application/json")]
 public class UserController : Controller
 {
-    private readonly IUserHandler userHandler;
+    private readonly ICustomerHandler userHandler;
 
-    private CodingChallengeDataBaseContext context;
-
-    public UserController(
-        //IUserHandler userHandler, 
-        CodingChallengeDataBaseContext context)
+    public UserController(ICustomerHandler userHandler)
     {
-        //this.userHandler = userHandler;
-        this.context = context;
+        this.userHandler = userHandler;
     }
     [HttpGet]
     public IActionResult List()
