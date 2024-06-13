@@ -14,5 +14,5 @@ public class UserModel : BaseModel
 
     public string DateOfBirth { get; set; }
 
-    public Guid CustomerRefId { get; set; }
+    public CustomerModel Customer { get; }
 }

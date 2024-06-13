@@ -1,3 +1,6 @@
+using System.Runtime.CompilerServices;
+using Levelbuild.CodingChallenge.Domain.Abstractions.Handlers;
+using Levelbuild.CodingChallenge.Persistence.Context;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Levelbuild.CodingChallenge.Api.Controllers;
@@ -7,9 +10,16 @@ namespace Levelbuild.CodingChallenge.Api.Controllers;
 [Produces("application/json")]
 public class UserController : Controller
 {
-    public UserController(IUserHandler userHandler)
+    private readonly IUserHandler userHandler;
+
+    private CodingChallengeDataBaseContext context;
+
+    public UserController(
+        //IUserHandler userHandler, 
+        CodingChallengeDataBaseContext context)
     {
-        this.userHandler = userHandler;
+        //this.userHandler = userHandler;
+        this.context = context;
     }
     [HttpGet]
     public IActionResult List()
