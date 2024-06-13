@@ -34,7 +34,7 @@ public class GetCustomerHandler : IGetCustomerHandler
         {
             try
             {
-                CustomerModel customer = await this.GetInternallyAsync(id);
+                CustomerModel customer = await this.GetInternallyAsync(id).ConfigureAwait(false);
                 return customer;
             }
             catch (Exception e)

@@ -31,6 +31,6 @@ public class CustomerTableRecordConfiguration
             WithOne().
             HasForeignKey(e=>e.CustomerRefId).
             HasPrincipalKey(e => e.Id).
-            OnDelete(DeleteBehavior.ClientCascade);
+            OnDelete(DeleteBehavior.Cascade);
     }
 }

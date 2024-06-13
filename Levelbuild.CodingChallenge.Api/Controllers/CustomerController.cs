@@ -21,6 +21,7 @@ public class CustomerController : Controller
     private readonly IGetCustomerHandler getCustomerHandler;
     private readonly ICreateCustomerHandler createCustomerHandler;
     private readonly IUpdateCustomerHandler updateCustomerHandler;
+    private readonly IDeleteCustomerHandler deleteCustomerHandler;
     private readonly IMapper mapper;
 
     public CustomerController(
@@ -28,12 +29,14 @@ public class CustomerController : Controller
         IGetCustomerHandler getCustomerHandler,
         ICreateCustomerHandler createCustomerHandler,
         IUpdateCustomerHandler updateCustomerHandler,
+        IDeleteCustomerHandler deleteCustomerHandler,
         IMapper mapper)
     {
         this._getAllCustomersHandler = getAllCustomersHandler ?? throw new ArgumentNullException(nameof(getAllCustomersHandler));
         this.getCustomerHandler = getCustomerHandler ?? throw new ArgumentNullException(nameof(getCustomerHandler));
         this.createCustomerHandler = createCustomerHandler ?? throw new ArgumentNullException(nameof(createCustomerHandler));
         this.updateCustomerHandler = updateCustomerHandler ?? throw new ArgumentNullException(nameof(updateCustomerHandler));
+        this.deleteCustomerHandler = deleteCustomerHandler ?? throw new ArgumentNullException(nameof(deleteCustomerHandler));
         this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
@@ -88,8 +91,12 @@ public class CustomerController : Controller
 
     [HttpDelete]
     [Route("{id}")]
-    public IActionResult Delete()
+    public async Task<IActionResult> Delete([FromRoute] string id)
     {
+        Guid guid = Guid.Parse(id);
+
+        await this.deleteCustomerHandler.DeleteAsync(guid).ConfigureAwait(false);
+
         return Ok();
     }
 }

@@ -33,7 +33,7 @@ public class GetAllGetAllCustomersesHandler : IGetAllCustomersHandler
         {
             try
             {
-                IEnumerable<CustomerModel> customers = await this.GetAllInternallyAsync();
+                IEnumerable<CustomerModel> customers = await this.GetAllInternallyAsync().ConfigureAwait(false);
                 return customers;
             }
             catch (Exception e)
