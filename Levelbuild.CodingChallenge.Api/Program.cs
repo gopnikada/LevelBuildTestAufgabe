@@ -1,10 +1,10 @@
 using Levelbuild.CodingChallenge.Api;
-using Levelbuild.CodingChallenge.Data.Models;
+using Levelbuild.CodingChallenge.Domain.Abstractions.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.OData;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
 

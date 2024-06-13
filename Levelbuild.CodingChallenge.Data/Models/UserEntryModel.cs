@@ -1,4 +1,6 @@
-namespace Levelbuild.CodingChallenge.Data.Models;
+using System;
+
+namespace Levelbuild.CodingChallenge.Domain.Abstractions.Models;
 
 public class UserEntryModel : BaseEntity
 {

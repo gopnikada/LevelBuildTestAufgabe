@@ -1,4 +1,4 @@
-namespace Levelbuild.CodingChallenge.Data.Models;
+namespace Levelbuild.CodingChallenge.Domain.Abstractions.Models;
 
 public class CustomerEntryModel : BaseEntity
 {

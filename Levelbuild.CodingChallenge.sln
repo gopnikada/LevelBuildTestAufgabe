@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Levelbuild.CodingChallenge.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Levelbuild.CodingChallenge.Api", "Levelbuild.CodingChallenge.Api\Levelbuild.CodingChallenge.Api.csproj", "{FA644939-54D4-4FDF-A352-06F257C84A95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Levelbuild.CodingChallenge.Domain.Tests", "Levelbuild.CodingChallenge.Domain.Tests\Levelbuild.CodingChallenge.Domain.Tests.csproj", "{891D8238-9B28-4CE8-B0F3-FDAD73F817F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{FA644939-54D4-4FDF-A352-06F257C84A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA644939-54D4-4FDF-A352-06F257C84A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA644939-54D4-4FDF-A352-06F257C84A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{891D8238-9B28-4CE8-B0F3-FDAD73F817F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{891D8238-9B28-4CE8-B0F3-FDAD73F817F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{891D8238-9B28-4CE8-B0F3-FDAD73F817F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{891D8238-9B28-4CE8-B0F3-FDAD73F817F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -42,6 +48,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D2293913-90C0-43A3-9E57-C05C8C8E2D42} = {99AFD5E9-C11F-42A3-8F77-BCC8637CC7B9}
 		{FA644939-54D4-4FDF-A352-06F257C84A95} = {BC8B2D75-AB83-4CB7-8270-906C2929A2E0}
+		{891D8238-9B28-4CE8-B0F3-FDAD73F817F8} = {99AFD5E9-C11F-42A3-8F77-BCC8637CC7B9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {16C99900-625B-40BF-A145-F4510C842EB2}
