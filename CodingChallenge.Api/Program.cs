@@ -1,5 +1,5 @@
 using Levelbuild.CodingChallenge.Api;
-using Levelbuild.CodingChallenge.Data.Entities;
+using Levelbuild.CodingChallenge.Data.Models;
 using Microsoft.AspNetCore.OData;
 using Microsoft.OData.Edm;
 using Microsoft.OData.ModelBuilder;
@@ -17,8 +17,8 @@ builder.Services.AddControllers().AddOData(opt =>
 static IEdmModel GetEdmModel()
 {
     var builder = new ODataConventionModelBuilder();
-    builder.EntitySet<Customer>("Customers");
-    builder.EntitySet<User>("Users");
+    builder.EntitySet<CustomerEntryModel>("Customers");
+    builder.EntitySet<UserEntryModel>("Users");
     return builder.GetEdmModel();
 }
 

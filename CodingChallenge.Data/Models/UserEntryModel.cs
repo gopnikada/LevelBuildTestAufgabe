@@ -1,12 +1,10 @@
-namespace Levelbuild.CodingChallenge.Data.Entities;
+namespace Levelbuild.CodingChallenge.Data.Models;
 
-public class User
+public class UserEntryModel : BaseEntity
 {
-    public Guid Id { get; set; }
-    
     public Guid CustomerId { get; set; }
     
-    public Customer Customer { get; set; }
+    public CustomerEntryModel Customer { get; set; }
     
     public string DisplayName { get; set; }
     

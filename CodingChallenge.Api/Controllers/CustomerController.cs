@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 using System.Reflection.Metadata.Ecma335;
-using Levelbuild.CodingChallenge.Data.Entities;
+using Levelbuild.CodingChallenge.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 
@@ -13,15 +13,15 @@ public class CustomerController : Controller
 {
     [HttpGet]
     [EnableQuery]
-    public ActionResult<IQueryable<Customer>> GetCustomers()
+    public ActionResult<IQueryable<CustomerEntryModel>> GetCustomers()
     {
-        IQueryable<Customer> asQueryable =
-            new EnumerableQuery<Customer>(new List<Customer>()
+        IQueryable<CustomerEntryModel> asQueryable =
+            new EnumerableQuery<CustomerEntryModel>(new List<CustomerEntryModel>()
             {
-                new Customer() { Id = Guid.NewGuid(), Name = "name1", WebSite = "ws1"},
-                new Customer() { Id = Guid.NewGuid(), Name = "name2", WebSite = "ws2"},
-                new Customer() { Id = Guid.NewGuid(), Name = "name3", WebSite = "ws3"},
-                new Customer() { Id = Guid.NewGuid(), Name = "name4", WebSite = "ws4"},
+                new CustomerEntryModel() { Id = Guid.NewGuid(), Name = "name1", WebSite = "ws1"},
+                new CustomerEntryModel() { Id = Guid.NewGuid(), Name = "name2", WebSite = "ws2"},
+                new CustomerEntryModel() { Id = Guid.NewGuid(), Name = "name3", WebSite = "ws3"},
+                new CustomerEntryModel() { Id = Guid.NewGuid(), Name = "name4", WebSite = "ws4"},
             });
 
         return Ok(asQueryable);
