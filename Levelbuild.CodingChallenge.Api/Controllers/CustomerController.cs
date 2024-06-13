@@ -20,17 +20,20 @@ public class CustomerController : Controller
     private readonly IGetAllCustomersHandler _getAllCustomersHandler;
     private readonly IGetCustomerHandler getCustomerHandler;
     private readonly ICreateCustomerHandler createCustomerHandler;
+    private readonly IUpdateCustomerHandler updateCustomerHandler;
     private readonly IMapper mapper;
 
     public CustomerController(
         IGetAllCustomersHandler getAllCustomersHandler,
         IGetCustomerHandler getCustomerHandler,
-        ICreateCustomerHandler createCustomerHandler, 
+        ICreateCustomerHandler createCustomerHandler,
+        IUpdateCustomerHandler updateCustomerHandler,
         IMapper mapper)
     {
         this._getAllCustomersHandler = getAllCustomersHandler ?? throw new ArgumentNullException(nameof(getAllCustomersHandler));
         this.getCustomerHandler = getCustomerHandler ?? throw new ArgumentNullException(nameof(getCustomerHandler));
         this.createCustomerHandler = createCustomerHandler ?? throw new ArgumentNullException(nameof(createCustomerHandler));
+        this.updateCustomerHandler = updateCustomerHandler ?? throw new ArgumentNullException(nameof(updateCustomerHandler));
         this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
@@ -72,8 +75,14 @@ public class CustomerController : Controller
 
     [HttpPatch]
     [Route("{id}")]
-    public IActionResult Update()
+    public async Task<IActionResult> Update([FromRoute] string id, [FromBody] CreateCustomerRequestDataModel request)
     {
+        Guid guid = Guid.Parse(id);
+
+        CreateCustomerRequestModel domainRequest = this.mapper.Map<CreateCustomerRequestModel>(request);
+
+        await this.updateCustomerHandler.Update(guid, domainRequest).ConfigureAwait(false);
+
         return Ok();
     }
 
