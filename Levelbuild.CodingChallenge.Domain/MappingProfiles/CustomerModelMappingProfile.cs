@@ -11,7 +11,6 @@ public class CustomerModelMappingProfile : Profile
         this.CreateMap<CustomerTableRecord, CustomerModel>()
             .ForMember(d => d.Id, o => o.MapFrom(s => s.Id))
             .ForMember(d => d.Name, o => o.MapFrom(s => s.Name))
-            .ForMember(d => d.WebSite, o => o.MapFrom(s => s.WebSite))
-            .ForMember(d => d.Users, o => o.MapFrom(s => s.Users));
+            .ForMember(d => d.WebSite, o => o.MapFrom(s => s.WebSite));
     }
 }

@@ -40,5 +40,6 @@ public class UserTableRecordConfiguration
         _ = entity.
             Property(p => p.DateOfBirth).
             IsRequired();
+
     }
 }

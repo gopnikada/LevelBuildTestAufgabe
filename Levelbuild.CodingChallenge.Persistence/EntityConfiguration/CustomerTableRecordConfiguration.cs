@@ -28,9 +28,9 @@ public class CustomerTableRecordConfiguration
 
         _ = entity.
             HasMany(p => p.Users).
-            WithOne(p => p.Customer).
+            WithOne().
             HasForeignKey(e=>e.CustomerRefId).
-            HasPrincipalKey(e=>e.Id).
+            HasPrincipalKey(e => e.Id).
             OnDelete(DeleteBehavior.ClientCascade);
     }
 }

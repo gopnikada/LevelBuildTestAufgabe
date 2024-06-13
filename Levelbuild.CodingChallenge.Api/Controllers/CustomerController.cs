@@ -29,13 +29,7 @@ public class CustomerController : Controller
         var customers = await this.customerHandler.GetAllAsync().ConfigureAwait(false);
 
         IQueryable<CustomerModel> asQueryable =
-            new EnumerableQuery<CustomerModel>(new List<CustomerModel>()
-            {
-                new CustomerModel() { Id = Guid.NewGuid(), Name = "name1", WebSite = "ws1"},
-                new CustomerModel() { Id = Guid.NewGuid(), Name = "name2", WebSite = "ws2"},
-                new CustomerModel() { Id = Guid.NewGuid(), Name = "name3", WebSite = "ws3"},
-                new CustomerModel() { Id = Guid.NewGuid(), Name = "name4", WebSite = "ws4"},
-            });
+            new EnumerableQuery<CustomerModel>(customers);
 
         return Ok(asQueryable);
     }
