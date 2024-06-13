@@ -15,6 +15,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Levelbuild.CodingChallenge.Data\Levelbuild.CodingChallenge.Domain.Abstractions.csproj" />
+      <ProjectReference Include="..\Levelbuild.CodingChallenge.Persistence.Abstractions\Levelbuild.CodingChallenge.Persistence.Abstractions.csproj" />
+      <ProjectReference Include="..\Levelbuild.CodingChallenge.Persistence\Levelbuild.CodingChallenge.Persistence.csproj" />
     </ItemGroup>
 
 </Project>

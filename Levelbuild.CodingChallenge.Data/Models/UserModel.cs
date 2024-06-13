@@ -2,19 +2,17 @@ using System;
 
 namespace Levelbuild.CodingChallenge.Domain.Abstractions.Models;
 
-public class UserEntryModel : BaseEntity
+public class UserModel : BaseModel
 {
-    public Guid CustomerId { get; set; }
-    
-    public CustomerEntryModel Customer { get; set; }
-    
     public string DisplayName { get; set; }
-    
+
     public string FirstName { get; set; }
-    
+
     public string LastName { get; set; }
-    
+
     public string Email { get; set; }
-    
-    public DateTime DateOfBirth { get; set; }
+
+    public string DateOfBirth { get; set; }
+
+    public Guid CustomerRefId { get; set; }
 }

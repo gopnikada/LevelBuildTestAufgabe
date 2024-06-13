@@ -9,11 +9,14 @@
 	<ItemGroup>
 	  <Folder Include="Builder\" />
 	  <Folder Include="Context\" />
+	  <Folder Include="Extensions\" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.6" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.6" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.6" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -7,6 +7,10 @@ namespace Levelbuild.CodingChallenge.Api.Controllers;
 [Produces("application/json")]
 public class UserController : Controller
 {
+    public UserController(IUserHandler userHandler)
+    {
+        this.userHandler = userHandler;
+    }
     [HttpGet]
     public IActionResult List()
     {

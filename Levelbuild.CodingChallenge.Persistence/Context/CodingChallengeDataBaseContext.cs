@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Threading;
 using System.Threading.Tasks;
 using Levelbuild.CodingChallenge.Persistence.Abstractions.Models;
@@ -16,9 +17,9 @@ public class CodingChallengeDataBaseContext : DbContext
     {
     }
 
-    private DbSet<CustomerTableRecord> Customers { get; set; }
+    public DbSet<CustomerTableRecord> Customers { get; set; }
 
-    private DbSet<UserTableRecord> Users { get; set; }
+    public DbSet<UserTableRecord> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -66,6 +67,14 @@ public class CodingChallengeDataBaseContext : DbContext
                 ((BaseTableRecord)entry.Entity).ModifiedAt = DateTimeOffset.UtcNow;
                 ((BaseTableRecord)entry.Entity).ModifiedBy = Thread.CurrentPrincipal?.Identity?.Name ?? "unknown";
             }
+        }
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlite("DataSource=:memory:");
         }
     }
 }

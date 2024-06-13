@@ -1,6 +1,6 @@
 namespace Levelbuild.CodingChallenge.Domain.Abstractions.Models;
 
-public class CustomerEntryModel : BaseEntity
+public class CustomerModel : BaseModel
 {
     public string Name { get; set; }
     
