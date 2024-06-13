@@ -6,6 +6,7 @@ using AutoMapper;
 using Levelbuild.CodingChallenge.Api.Models;
 using Levelbuild.CodingChallenge.Domain.Abstractions.Handlers;
 using Levelbuild.CodingChallenge.Domain.Abstractions.Models;
+using Levelbuild.CodingChallenge.Domain.Handlers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 
@@ -17,11 +18,13 @@ namespace Levelbuild.CodingChallenge.Api.Controllers;
 public class CustomerController : Controller
 {
     private readonly IGetAllCustomersHandler _getAllCustomersHandler;
+    private IGetCustomerHandler getCustomerHandler;
     private readonly IMapper mapper;
 
-    public CustomerController(IGetAllCustomersHandler getAllCustomersHandler, IMapper mapper)
+    public CustomerController(IGetAllCustomersHandler getAllCustomersHandler, IGetCustomerHandler getCustomerHandler, IMapper mapper)
     {
         this._getAllCustomersHandler = getAllCustomersHandler ?? throw new ArgumentNullException(nameof(getAllCustomersHandler));
+        this.getCustomerHandler = getCustomerHandler ?? throw new ArgumentNullException(nameof(getCustomerHandler));
         this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
@@ -33,17 +36,22 @@ public class CustomerController : Controller
 
         IEnumerable<CustomerDataModel> customers = this.mapper.Map<IEnumerable<CustomerDataModel>>(customersFromHandler);
 
-        IQueryable<CustomerDataModel> asQueryable =
-            new EnumerableQuery<CustomerDataModel>(customers);
+        IQueryable<CustomerDataModel> asQueryable = new EnumerableQuery<CustomerDataModel>(customers);
 
         return Ok(asQueryable);
     }
 
     [HttpGet]
     [Route("{id}")]
-    public IActionResult Get()
+    public async Task<IActionResult> Get([FromRoute] string id)
     {
-        return Ok();
+        Guid guid = Guid.Parse(id);
+
+        CustomerModel customerFromHandler = await this.getCustomerHandler.GetAsync(guid).ConfigureAwait(false);
+
+        CustomerDataModel customer = this.mapper.Map<CustomerDataModel>(customerFromHandler);
+
+        return Ok(customer);
     }
 
     [HttpPost]

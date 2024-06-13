@@ -18,6 +18,7 @@ public static class ServiceCollectionExtensions
         mappingAssemblies.Add(typeof(ServiceCollectionExtensions).Assembly);
 
         services.AddScoped<IGetAllCustomersHandler, GetAllGetAllCustomersesHandler>();
+        services.AddScoped<IGetCustomerHandler, GetCustomerHandler>();
 
         return services;
     }
