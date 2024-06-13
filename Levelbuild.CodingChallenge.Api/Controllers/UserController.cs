@@ -8,11 +8,8 @@ namespace Levelbuild.CodingChallenge.Api.Controllers;
 [Produces("application/json")]
 public class UserController : Controller
 {
-    private readonly ICustomerHandler userHandler;
-
-    public UserController(ICustomerHandler userHandler)
+    public UserController()
     {
-        this.userHandler = userHandler;
     }
     [HttpGet]
     public IActionResult List()

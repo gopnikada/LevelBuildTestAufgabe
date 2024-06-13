@@ -12,13 +12,13 @@ using Microsoft.Extensions.Logging;
 
 namespace Levelbuild.CodingChallenge.Domain.Handlers;
 
-public class CustomerHandler : ICustomerHandler
+public class GetAllGetAllCustomersesHandler : IGetAllCustomersHandler
 {
     private readonly CodingChallengeDataBaseContext dbContext;
     private readonly IMapper mapper;
-    private readonly ILogger<CustomerHandler> logger;
+    private readonly ILogger<GetAllGetAllCustomersesHandler> logger;
 
-    public CustomerHandler(CodingChallengeDataBaseContext dbContext, IMapper mapper, ILogger<CustomerHandler> logger)
+    public GetAllGetAllCustomersesHandler(CodingChallengeDataBaseContext dbContext, IMapper mapper, ILogger<GetAllGetAllCustomersesHandler> logger)
     {
         this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));

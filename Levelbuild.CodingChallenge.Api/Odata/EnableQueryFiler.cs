@@ -13,8 +13,7 @@ namespace Levelbuild.CodingChallenge.Api.Odata
             ( "$skip", "The number of records to skip."),
             ( "$filter", "A function that must evaluate to true for a record to be returned."),
             ( "$select", "Specifies a subset of properties to return. Use a comma separated list."),
-            ( "$orderby", "Determines what values are used to order a collection of records."),
-            ( "$expand", "Use to add related query data.")
+            ( "$orderby", "Determines what values are used to order a collection of records.")
         }.Select(pair => new OpenApiParameter
         {
             Name = pair.Name,

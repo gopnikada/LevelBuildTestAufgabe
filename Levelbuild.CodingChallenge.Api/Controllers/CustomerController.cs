@@ -16,21 +16,20 @@ namespace Levelbuild.CodingChallenge.Api.Controllers;
 [Produces("application/json")]
 public class CustomerController : Controller
 {
-    private readonly ICustomerHandler customerHandler;
+    private readonly IGetAllCustomersHandler _getAllCustomersHandler;
     private readonly IMapper mapper;
 
-    public CustomerController(ICustomerHandler customerHandler, IMapper mapper)
+    public CustomerController(IGetAllCustomersHandler getAllCustomersHandler, IMapper mapper)
     {
-        this.customerHandler = customerHandler ?? throw new ArgumentNullException(nameof(customerHandler));
+        this._getAllCustomersHandler = getAllCustomersHandler ?? throw new ArgumentNullException(nameof(getAllCustomersHandler));
         this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
     [HttpGet]
     [EnableQuery]
-    public async Task<ActionResult<IQueryable<CustomerModel>>> GetCustomers()
+    public async Task<ActionResult<IQueryable<CustomerDataModel>>> GetCustomers()
     {
-
-        IEnumerable<CustomerModel> customersFromHandler = await this.customerHandler.GetAllAsync().ConfigureAwait(false);
+        IEnumerable<CustomerModel> customersFromHandler = await this._getAllCustomersHandler.GetAllAsync().ConfigureAwait(false);
 
         IEnumerable<CustomerDataModel> customers = this.mapper.Map<IEnumerable<CustomerDataModel>>(customersFromHandler);
 

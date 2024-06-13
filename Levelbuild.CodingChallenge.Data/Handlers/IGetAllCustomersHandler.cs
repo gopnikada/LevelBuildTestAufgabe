@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Levelbuild.CodingChallenge.Domain.Abstractions.Handlers;
 
-public interface ICustomerHandler
+public interface IGetAllCustomersHandler
 {
     Task<IEnumerable<CustomerModel>> GetAllAsync();
 }
